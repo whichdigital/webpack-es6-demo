@@ -6,12 +6,15 @@ A small demo project that shows the capabilities of ECMAScript 6 on the client-s
 
 ```bash
 $ npm install
+$ npm install -g gulp
 ```
 
 ## Development
 
 ```bash
-$ webpack --watch &
+$ gulp launch
 ```
 
-Go to path/to/project-dir/webpack-es6-demo/index.html to view result in browser.
+Go to `http://localhost:8080/` for the built development environment.
+
+To see application status at anytime;  http://localhost:8080/webpack-dev-server/index.html
