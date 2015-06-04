@@ -12,7 +12,7 @@ $ npm install -g gulp
 ## Development
 
 ```bash
-$ gulp launch
+$ gulp serve
 ```
 
 Go to `http://localhost:8080/` for the built development environment.
