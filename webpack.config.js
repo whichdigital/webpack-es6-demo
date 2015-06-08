@@ -4,7 +4,7 @@ module.exports = {
   entry: './es6/main.js',
   output: {
     path: __dirname,
-    publicPath: '/assets/',
+    publicPath: '/public/',
     filename: 'bundle.js'
   },
   module: {
