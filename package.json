@@ -4,6 +4,7 @@
   "description": "Demo of ES6 and supporting applications.",
   "main": "bundle.js",
   "dependencies": {
+    "express": "^4.12.4",
     "node-libs-browser": "^0.5.2"
   },
   "devDependencies": {
