@@ -25,7 +25,7 @@ gulp.task('webpack-dev-server', function (callback) {
       });
 });
 
-gulp.task('server', function() {
+gulp.task('express-server', function() {
   // place code for your default task here
 });
 

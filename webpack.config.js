@@ -11,7 +11,7 @@ module.exports = {
     loaders: [
       {
         test: path.join(__dirname, 'app'),
-        loader: 'babel-loader'
+        loader: ['jsx', 'babel-loader']
       }
     ]
   },
