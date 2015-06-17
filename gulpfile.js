@@ -1,35 +1,25 @@
-var path = require('path'),
-    gulp = require('gulp'),
-    gutil = require('gulp-util'),
-    webpack = require('webpack'),
-    webpackConfig = require('./webpack.config'),
-    WebpackDevServer = require('webpack-dev-server');
+var path = require('path');
+var gulp = require('gulp');
+var bg = require('gulp-bg');
+var webpack = require('webpack');
+var WebpackDevServer = require('./webpack/dev');
+var yargs = require('yargs');
 
-gulp.task('webpack-dev-server', function (callback) {
-  // Start a webpack-dev-server
-  var compiler = webpack(webpackConfig),
-      webpackOptions = {
-        debug: true,
-        devtool: '#source-map',
-        watchDelay: 200
-      };
+var args = yargs
+    .alias('p', 'production')
+    .argv;
 
-  new WebpackDevServer(compiler, webpackOptions)
-      .listen(8080, 'localhost', function (err) {
-        if (err) throw new gutil.PluginError('webpack-dev-server', err);
-        // Server listening
-        gutil.log('[webpack-dev-server]', 'http://localhost:8080/webpack-dev-server/index.html');
-
-        // keep the server alive or continue?
-        // callback();
-      });
+gulp.task('env', function() {
+  process.env.NODE_ENV = args.production ? 'production' : 'development';
 });
 
-gulp.task('express-server', function() {
-  // place code for your default task here
-});
+gulp.task('build', ['build-webpack']);
+gulp.task('build-webpack', [args.production ? 'build-webpack-production' : 'build-webpack-dev']);
+//gulp.task('build-webpack-production', webpackBuild(makeWebpackConfig(false)));
+gulp.task('build-webpack-dev', new WebpackDevServer());
 
-gulp.task('serve', ['webpack-dev-server']);
 gulp.task('default', function() {
   // place code for your default task here
 });
+
+gulp.task('server', ['env', 'build'], bg('node', 'server'));

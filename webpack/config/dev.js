@@ -10,8 +10,8 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: path.join(__dirname, 'app'),
-        loader: ['jsx', 'babel-loader']
+        test: path.join(__dirname, '../../app'),
+        loader: 'babel-loader'
       }
     ]
   },
