@@ -1,0 +1,27 @@
+var express = require('express'),
+    path = require('path'),
+    app = express(),
+    port = 8090;
+
+// For React components
+require('node-jsx').install({harmony: true});
+
+// Include static assets.
+app.use(express.static(path.join(__dirname, 'public')));
+// Mount the view path
+app.set('views', path.join(__dirname, 'app/views'));
+// set up ejs for templating. You can use whatever
+app.set('view engine', 'ejs');
+
+// Set up Routes handlers for the application
+require(__dirname + '/app/routes/routes.js')(app);
+
+// Route not found -- Set 404
+app.get('*', function(req, res) {
+  res.json({
+    "route": "Sorry this page does not exist!"
+  });
+});
+
+app.listen(port);
+console.log('Server is Up and Running at Port : ' + port);
