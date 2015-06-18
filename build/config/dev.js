@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  entry: './app/app.js',
+  entry: './src/client/app.js',
   output: {
     path: __dirname,
     publicPath: '/public/',
@@ -10,7 +10,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: path.join(__dirname, '../../app'),
+        test: path.join(__dirname, '../../src'),
         loader: 'babel-loader'
       }
     ]

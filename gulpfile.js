@@ -2,8 +2,8 @@ var path = require('path');
 var gulp = require('gulp');
 var bg = require('gulp-bg');
 var webpack = require('webpack');
-var WebpackDevServer = require('./webpack/dev');
-// var WebpackBuildServer = require('./webpack/build');
+var WebpackDevServer = require('./build/dev');
+// var WebpackProdServer = require('./build/prod');
 var yargs = require('yargs');
 
 var args = yargs
@@ -16,7 +16,7 @@ gulp.task('env', function() {
 
 gulp.task('build', ['build-webpack']);
 gulp.task('build-webpack', [args.production ? 'build-webpack-production' : 'build-webpack-dev']);
-//gulp.task('build-webpack-production', new WebpackBuildServer());
+//gulp.task('build-webpack-production', new WebpackProdServer());
 gulp.task('build-webpack-dev', new WebpackDevServer());
 
 gulp.task('server', ['env', 'build'], bg('node', 'server'));
