@@ -20,7 +20,7 @@ require(path.join(__dirname, 'routes/routes.js'))(app);
 // Route not found -- Set 404
 app.get('*', function(req, res) {
   res.json({
-    "route": "Sorry this page does not exist!"
+    'route': 'Sorry this page does not exist!'
   });
 });
 
