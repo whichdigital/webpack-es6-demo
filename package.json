@@ -16,6 +16,7 @@
     "gulp-bg": "0.0.5",
     "gulp-util": "^3.0.5",
     "node-jsx": "^0.13.3",
+    "react-hot-loader": "^1.2.7",
     "webpack": "^1.9.10",
     "webpack-dev-server": "^1.9.0",
     "yargs": "^3.11.0"
