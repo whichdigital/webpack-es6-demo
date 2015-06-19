@@ -14,7 +14,10 @@ module.exports = function() {
         webpackOptions = {
           debug: true,
           devtool: '#source-map',
-          watchDelay: 200
+          watchDelay: 200,
+          // reload component(s)
+          // hot: true,
+          quiet: false
         };
 
     new WebpackDevServer(compiler, webpackOptions)

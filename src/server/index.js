@@ -9,12 +9,12 @@ require('node-jsx').install({harmony: true});
 // Include static assets.
 app.use(express.static(path.join(__dirname, 'public')));
 // Mount the view path
-app.set('views', path.join(__dirname, 'src/server/views'));
+app.set('views', path.join(__dirname, 'views'));
 // set up ejs for templating. You can use whatever
 app.set('view engine', 'ejs');
 
 // Set up Routes handlers for the application
-require(__dirname + '/src/server/routes/routes.js')(app);
+require(path.join(__dirname, 'routes/routes.js'))(app);
 
 // Route not found -- Set 404
 app.get('*', function(req, res) {

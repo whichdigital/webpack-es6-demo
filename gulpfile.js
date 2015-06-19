@@ -19,5 +19,7 @@ gulp.task('build-webpack', [args.production ? 'build-webpack-production' : 'buil
 //gulp.task('build-webpack-production', new WebpackProdServer());
 gulp.task('build-webpack-dev', new WebpackDevServer());
 
-gulp.task('serve', ['env', 'build'], bg('node', 'server'));
+gulp.task('express-server', bg('node', '--harmony', 'src/server/'));
+
+gulp.task('serve', ['env', 'build','express-server']);
 gulp.task('default', ['serve']);
