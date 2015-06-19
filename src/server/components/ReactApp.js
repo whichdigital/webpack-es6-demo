@@ -1,6 +1,4 @@
-'use strict';
-
-var React = require('react');
+import React from 'react';
 
 var ReactApp = React.createClass({
   render: function() {

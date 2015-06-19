@@ -5,6 +5,7 @@ var express = require('express'),
 
 // For React components
 require('node-jsx').install({harmony: true});
+require('babel/register');
 
 // Include static assets.
 app.use(express.static(path.join(__dirname, 'public')));
