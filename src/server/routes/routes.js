@@ -1,6 +1,7 @@
-import React from 'react/addons';
-var ReactApp = React.createFactory(require('../components/ReactApp'));
+/*import React from 'react/addons';
+var ReactApp = React.createFactory(require('../components/ReactApp'));*/
 
+/*
 module.exports = function(app) {
 
   app.get('/', function(req, res){
@@ -12,4 +13,12 @@ module.exports = function(app) {
     res.render('index.ejs', {reactOutput: reactHtml});
   });
 
-};
+};*/
+
+var React = require('react');
+var {DefaultRoute, NotFoundRoute, Route} = require('react-router');
+
+module.exports = [
+  <Route path="/" handler={require('../components/ReactApp')}>
+  </Route>
+];
